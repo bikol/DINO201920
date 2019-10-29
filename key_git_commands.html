@@ -36,6 +36,12 @@ Dodatkowo możemy jeszcze powiązać adres e-mail z gitem zastępując parametr 
 <h3 id="git-branch---merged"><code>git branch --merged</code></h3>
 <h3 id="git-branch-%22branch%22-%22commit-hash%22"><code>git branch &quot;branch&quot; &quot;commit hash&quot;</code></h3>
 <h3 id="git-pull-%22remote%22-%22branch%22"><code>git pull &quot;remote&quot; &quot;branch&quot;</code></h3>
+<p>Uruchomienie <code>git pull</code> rozpoczyna ściągnięcie danych z serwera oraz próbuje automatycznie scalić zmiany z kodem znajdującym się lokalnie. Jest to połączenie dwóch komend: <code>git fetch</code> - ściągnięcie danych i <code>git merge</code> - połączenie zmian. Nie zmieniając podczas pracy, repozytorium i gałęzi wystarczy wpisać samo <code>git pull</code>. Domyślne wartości repozytorium i brancha zostaną odczytane z konfiguracji gita (ustawienia "remote" oraz "merge").  Parametry:</p>
+<ul>
+    <li>"remote" to nazwa repozytorium, na przykład gdy stworzyliśmy je poprzez sklonowanie, oryginalne repozytorium będzie miało domyślnie nazwę <strong>origin</strong>.</li>
+    <li>"branch" to nazwa gałęzi z której mają być pobrane zmiany. Automatycznie główny branch to <strong>master</strong>.</li>
+</ul>
+<p><strong>Źródło: <a href="https://git-scm.com/docs/git-pull">https://git-scm.com/docs/git-pull</a></strong></p>
 <h3 id="git-config---global-useremail-%22%22"><code>git config --global user.email &quot;&quot;</code></h3>
 <h3 id="git-diff---staged"><code>git diff --staged</code></h3>
 <h3 id="git-checkout--b-%22branch%22"><code>git checkout -b &quot;branch&quot;</code></h3>
