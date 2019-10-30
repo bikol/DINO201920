@@ -139,7 +139,18 @@
     <section class="command">
         <h3><code>git branch -v</code></h3>
         <p>
-            <!-- describe here -->
+            Wypisuje branche, które są na naszym repozytorium, zaznaczając gwiazdką aktualny branch. Dodatkowo dostajemy informację o commicie na który wskazuje HEAD brancha - jego hash (sha1) oraz nazwę. 
+        </p><pre>
+$ git branch -v
+
+master bb2ce58 readme update
+  nowy   bb2ce58 readme update
+* nowy2  c31efe1 added new file
+  nowy7  c31efe1 added new file
+</pre> </p><p>
+Zamiast przełącznika -v można wpisać pełne, `--verbose`. 
+    </p><p>
+Podając -vv dopisana zostaje inforacja o repozytorium upstream dla brancha
         </p>
     </section class="command">
 
