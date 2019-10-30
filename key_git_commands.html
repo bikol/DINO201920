@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
     <style>
-        .task-list-item { 
-            list-style-type: none; 
-        } 
-        .task-list-item-checkbox { 
+        .task-list-item {
+            list-style-type: none;
+        }
+        .task-list-item-checkbox {
             margin-left: -20px;
-            vertical-align: middle; 
+            vertical-align: middle;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
@@ -83,7 +83,11 @@
     <section class="command">
         <h3><code>git config --global user.email &quot;&quot;</code></h3>
         <p>
-            <!-- describe here -->
+            <li>Konfiguracja nazwy użytkownika oraz adresu mailowego. Jest to istotne ponieważ każda operacja zatwierdzona w Git korzysta z tej informacji.</li>
+            <li>
+                  $ git config --global user.email jannowak@example.com
+            </li>
+            <li>Jeżeli użyjemy --global to konfiguracja bedzie dokonana jednorazowo. Git za każdym razem będzie z tej konfiguracji kozystał. </li>
         </p>
     </section class="command">
 
@@ -125,15 +129,15 @@
     <section class="command">
         <h3><code>git config --global color.ui true</code></h3>
         <p>
-            <!-- describe here -->            
-        </p>    
+            <!-- describe here -->
+        </p>
     </section class="command">
 
     <section class="command">
         <h3><code>git commit &quot;filename&quot;</code></h3>
         <p>
-            <!-- describe here -->            
-        </p>       
+            <!-- describe here -->
+        </p>
     </section>
 
     <section class="command">
@@ -154,7 +158,7 @@
         <h3><code>git log &quot;branch&quot; --not &quot;branch&quot;</code></h3>
         <p>
             <!-- describe here -->
-        </p>    
+        </p>
     </section>
 
     <section class="command">
@@ -175,14 +179,14 @@
         <h3><code>git add .</code></h3>
         <p>
             <!-- describe here -->
-        </p>    
+        </p>
     </section>
 
     <section class="command">
         <h3><code>git checkout &quot;branch&quot;</code></h3>
         <p>
             <!-- describe here -->
-        </p>    
+        </p>
     </section class="command">
 
     <section class="command">
@@ -196,7 +200,7 @@
         <h3><code>git blame -C &quot;filename&quot;</code></h3>
         <p>
             <!-- describe here -->
-        </p>    
+        </p>
     </section class="command">
 
     <section class="command">
@@ -212,9 +216,9 @@
                     Przykład użycia: "git branch nazwaNowegoBrancha"
                 </li>
             </ul>
-            
-            
-        </p>            
+
+
+        </p>
     </section class="command">
 
 
@@ -225,4 +229,4 @@
     </footer>
 </body>
 
-</html> 
+</html>
