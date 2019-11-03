@@ -75,8 +75,13 @@
 
     <section class="command">
         <h3><code>git pull &quot;remote&quot; &quot;branch&quot;</code></h3>
-        <p>
-            <!-- describe here -->
+        <p> 
+        Uruchomienie <code>git pull</code> rozpoczyna ściągnięcie danych z serwera oraz próbuje automatycznie scalić zmiany z kodem znajdującym się lokalnie. Jest to połączenie dwóch komend: <code>git fetch</code> - ściągnięcie danych i <code>git merge</code> - połączenie zmian. Nie modyfikując podczas pracy repozytorium i gałęzi wystarczy wpisać samo <code>git pull</code>. Domyślne wartości repozytorium i brancha zostaną odczytane z konfiguracji gita (ustawienia "remote" oraz "merge"). <br> 
+        Parametry:
+		    <ul>
+    			<li>"remote" to nazwa repozytorium, na przykład gdy stworzyliśmy je poprzez sklonowanie, oryginalne repozytorium będzie miało domyślnie nazwę <strong>origin</strong>.</li>
+    			<li>"branch" to nazwa gałęzi z której mają być pobrane zmiany. Automatycznie główny branch to <strong>master</strong>.</li>
+		    </ul>
         </p>
     </section>
 
@@ -220,8 +225,13 @@
 
     <footer>
         <p>
-            <strong>Źródło: <a href="https://help.github.com/en/github/using-git/setting-your-username-in-git">https://help.github.com/en/github/using-git/setting-your-username-in-git</a></strong>
-        </p>
+            <strong>Źródła: 
+            <ul>
+                <li><a href="https://help.github.com/en/github/using-git/setting-your-username-in-git">https://help.github.com/en/github/using-git/setting-your-username-in-git</a></li>
+                <li><a href="https://git-scm.com/docs/git-pull">https://git-scm.com/docs/git-pull</a></li>
+            </ul>
+		    </strong>        
+	</p>
     </footer>
 </body>
 
