@@ -32,13 +32,13 @@
     <section class="command">
         <h3> <code>git config --global user.name &quot;&quot;</code> </h3>
         <p>
-            Komenda zmieniająca naszą <strong>lokalną</strong> nazwę w aplikacji Git. Nazwa ta służy do podpisywania commitów wysyłanych do bazy głównej, nie jest w żaden sposób powiązana z naszą nazwą na przykład na GitHubie. Trzeba zaznaczyć, że zmiana nazwy nie spowoduje zmiany w poprzednich komitach, które zostały wysłane na serwer główny, a jedynie wpłynie na każde przyszłe commity. Parametry:
+            Komenda zmieniająca naszą <strong>lokalną</strong> nazwę w aplikacji Git. Nazwa ta służy do podpisywania commitów wysyłanych do bazy głównej, nie jest w żaden sposób powiązana z naszą nazwą na przykład na GitHubie. Trzeba zaznaczyć, że zmiana nazwy nie spowoduje zmiany w poprzednich commitach, które zostały wysłane na serwer główny, a jedynie wpłynie na każde przyszłe commity. Parametry:
             <ul>
                 <li>
                     --global: ustawia nazwę dla każdego repozytorium, nad którym pracujemy. Bez tego parametru, zmienimy jedynie nazwę w repozytorium, w którym się znajdujemy
                 </li>
                 <li>
-                    &quot;&quot; - w cudzysłowiu podajemy swoją nazwę
+                    &quot;&quot; - w cudzysłowie podajemy swoją nazwę
                     Dodatkowo możemy jeszcze powiązać adres e-mail z gitem zastępując parametr <code>user.name</code> parametrem <code>user.email</code>
                 </li>
             </ul>
@@ -48,8 +48,42 @@
     <section class="command">
         <h3> <code>git reset HEAD</code> </h3>
         <p>
-            <!-- describe here -->
+            Wywołanie tej komendy usuwa <strong>wszystkie</strong> pliki z poczekalni (pliki staged) na aktualnie używanym branch'u. Przydatne, gdy chcemy zrobić pull i wiemy, że pull ten nie zmieni plików, które mamy aktualnie w poczekalni. (by zrobić pull <strong>nie możemy</strong> mieć plików w poczekalni)
         </p>
+
+        <p>
+            Przykład użycia:
+            <ol>
+                <li>
+                    Zrobić jakieś zmiany w repozytorium w paru plikach.
+                </li>
+
+                <li>
+                    <code>git add . </code>
+                </li>
+
+                <li>
+                    <code>git status</code>
+                </li>
+
+                <li>
+                    <code>git reset HEAD</code>
+                </li>
+
+                <li>
+                    <code>git status</code>
+                </li>
+        </p>
+
+        <p>
+            (Na marginesie: <code>git reset HEAD <em>nazwa_pliku</em> </code> wycofuje z poczekalni <strong>tylko</strong> plik podany jako argument.)
+        </p>
+
+
+        <p>
+            Źródło: <a href="https://git-scm.com/book/pl/v2/Podstawy-Gita-Cofanie-zmian">https://git-scm.com/book/pl/v2/Podstawy-Gita-Cofanie-zmian</a>
+        </p>
+
     </section>
 
     <section class="command">
