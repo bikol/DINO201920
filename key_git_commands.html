@@ -296,8 +296,22 @@
     <section class="command">
         <h3><code>git blame -C &quot;filename&quot;</code></h3>
         <p>
-            <!-- describe here -->
-        </p>
+            W ogólności komenda git-blame informuje nas o tym, w której poprawce (commit) i jaki autor zmodyfikował konkretne linie w danym pliku. Opcja -C może być użyta trzy razy.
+			<ul>
+				<li>
+					 Użyta raz wykrywa linie przeniesione, bądź skopiowane z innych plików, które były modyfikowane wewnątrz tej samej poprawki. Opcja jest szczególnie użyteczna w przypadku, gdy dokonujemy reorganizacji kodu i przenosimy jego fragmenty między różnymi plikami.
+				</li>
+				<li>
+					Użyta podwójnie, dodatkowo szuka linii skopiowanych z innych plików, działa tylko dla poprawki w której stworzono plik.
+				</li>
+				<li>
+					Użyta potrójnie, dodatkowo szuka linii skopiowanych z innycy plików we wszystkich poprawkach.
+				</li>
+				<li>
+					Przykład użycia: "git blame -C -C -C dest"
+				</li>
+			</ul>
+        </p>    
     </section class="command">
 
     <section class="command">
