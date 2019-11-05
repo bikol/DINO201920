@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -267,8 +267,23 @@
     <section class="command">
         <h3><code>git checkout &quot;branch&quot;</code></h3>
         <p>
-            <!-- describe here -->
-        </p>
+            Komenda pozwalająca nawigować między branchami utworzonymi przez komendę &quot;branch&quot;. Zmiana &quot;brancha&quot; updatuje pliki w katalogu roboczym, tak aby zgadzały się z plikami na branchu, na który przechodzimy. Wszystkie commity są również rejestrowane na branchu, na który przeszliśmy.
+            <br /><strong>Zastosowanie:</strong>
+            <ul>
+                <li>
+                    Takie podejście umożliwia np. eksperymentowanie z kodem, bez obawy zepsucia głównej wersji
+                </li>
+            </ul>
+            <strong>Przykłady:</strong>
+            <ul>
+                <li>
+                    git checkout &lt;test_branch&gt;  - przejście z obecnego brancha na test_branch
+                </li>
+                <li>
+                    git checkout -b &lt;new_branch&gt;  - utworzenie nowego brancha i przejście z obecnego brancha na new_branch
+                </li>
+            </ul>
+        </p>   
     </section class="command">
 
     <section class="command">
