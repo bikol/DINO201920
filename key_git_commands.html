@@ -99,7 +99,7 @@
         <p>
             Komenda git branch bez parametrów umożliwia użytkownikowi sprawdzenie użytkownikowi jego aktualnych gałęzi. Gałąź przy której znajduje się znak &quot;&ast;&quot; Oznacza, że jest to gałąź na której użytkownik aktualnie pracuje.
 	    <ul>
-	    <li> --merged: wyświetla które gałęzie już zostały zmergowane z gałęzią na której użytkownik aktualnie pracował. Gałęzie które nie posiadają &quot;&ast;&quot; są bezpieczne do usunięcia, gdyż zmiany z nich zostały już dodane do 
+	    <li> --merged: wyświetla które gałęzie już zostały zmergowane z gałęzią na której użytkownik aktualnie pracował. Gałęzie które nie posiadają &quot;&ast;&quot; są bezpieczne do usunięcia, gdyż zmiany z nich zostały już dodane do
 		    aktualnej gałęzi.</li>
 	    <ul>
         </p>
@@ -114,8 +114,8 @@
 
     <section class="command">
         <h3><code>git pull &quot;remote&quot; &quot;branch&quot;</code></h3>
-        <p> 
-        Uruchomienie <code>git pull</code> rozpoczyna ściągnięcie danych z serwera oraz próbuje automatycznie scalić zmiany z kodem znajdującym się lokalnie. Jest to połączenie dwóch komend: <code>git fetch</code> - ściągnięcie danych i <code>git merge</code> - połączenie zmian. Nie modyfikując podczas pracy repozytorium i gałęzi wystarczy wpisać samo <code>git pull</code>. Domyślne wartości repozytorium i brancha zostaną odczytane z konfiguracji gita (ustawienia "remote" oraz "merge"). <br> 
+        <p>
+        Uruchomienie <code>git pull</code> rozpoczyna ściągnięcie danych z serwera oraz próbuje automatycznie scalić zmiany z kodem znajdującym się lokalnie. Jest to połączenie dwóch komend: <code>git fetch</code> - ściągnięcie danych i <code>git merge</code> - połączenie zmian. Nie modyfikując podczas pracy repozytorium i gałęzi wystarczy wpisać samo <code>git pull</code>. Domyślne wartości repozytorium i brancha zostaną odczytane z konfiguracji gita (ustawienia "remote" oraz "merge"). <br>
         Parametry:
 		    <ul>
     			<li>"remote" to nazwa repozytorium, na przykład gdy stworzyliśmy je poprzez sklonowanie, oryginalne repozytorium będzie miało domyślnie nazwę <strong>origin</strong>.</li>
@@ -146,18 +146,18 @@
         <h3><code>git checkout -b &quot;branch&quot;</code></h3>
         <p>
 			Gałęzie (branch'e) są używane do rozwijania poszczegółnych funkcjonalności.
-			Branch <b><code>master</code></b> jest domyślną gałęzią przy tworzeniu repozytorium, 
-			najczęszczej na tej gałęzi są wyłącznie gotowe źródła projektów.			
+			Branch <b><code>master</code></b> jest domyślną gałęzią przy tworzeniu repozytorium,
+			najczęszczej na tej gałęzi są wyłącznie gotowe źródła projektów.
         </p>
 		<p>
-			Do tworzenia nowego branch'u jest używane polecenie 
-		</p>	
+			Do tworzenia nowego branch'u jest używane polecenie
+		</p>
 		<pre>
 <!--		--> git chceckout -b &ltnazwa-nowego-branch'u&gt &ltnazwa-branch'u-początkowego&gt
 		</pre>
 		<p>
 			Przykład użycia
-		</p>	
+		</p>
 		<pre>
 <!--		--> git chceckout -b feature-logowanie master
 		</pre>
@@ -180,20 +180,20 @@
     <section class="command">
         <h3><code>git fetch &quot;remote&quot; &quot;branch&quot;</code></h3>
         <p>
-	   <ul> 
+	   <ul>
 		<li>
 		   Komenda fetch pobiera commity, pliki i odnosi się ze zdalnego repozytorium do naszego lokalnego.
 		</li>
 		<li>
-		   git fetch < remote > sprowadza wszystkie branche z repozytorium. Pobiera również wszsytkie wymagane commity i pliki z innych repozytoriów.          
+		   git fetch < remote > sprowadza wszystkie branche z repozytorium. Pobiera również wszsytkie wymagane commity i pliki z innych repozytoriów.
 		</li>
 		<li>
 	           git fetch < remote > <  branch > robi to samo co powyższa komenda, ale sprowadza tylko określony branch.
 	        </li>
 		<li>
 		   Przykład użycia: git fetch PRA2018-2019 JSONandXMLStart
-		</li>	  
-	    </ul>	
+		</li>
+	    </ul>
         </p>
     </section class="command">
 
@@ -207,7 +207,8 @@
     <section class="command">
         <h3><code>git commit &quot;filename&quot;</code></h3>
         <p>
-            <!-- describe here -->
+Pracuje nad projektem i mam swoje repozytorium na komputerze osobistym (sklonowane z gita), gdy chcę "pushnąć"
+update tego repozytorium do swojej gałęzi wtedy podaję komendę commit "*" wraz ze ścieżką do folderu który chce updetować.
         </p>
     </section>
 
@@ -217,7 +218,7 @@
             Wyświetla listę gałęzi wraz z dodatkowymi informacjami.
             <ul>
                 <li>
-                    Znak "*" przed nazwą gałęzi oznacza naszą obecną gałąź HEAD. 
+                    Znak "*" przed nazwą gałęzi oznacza naszą obecną gałąź HEAD.
                 </li>
                 <li>
                     Informacja na której gałęzi jest bazowana.
@@ -283,7 +284,7 @@
                     git checkout -b &lt;new_branch&gt;  - utworzenie nowego brancha i przejście z obecnego brancha na new_branch
                 </li>
             </ul>
-        </p>   
+        </p>
     </section class="command">
 
     <section class="command">
@@ -311,7 +312,7 @@
 					Przykład użycia: "git blame -C -C -C dest"
 				</li>
 			</ul>
-        </p>    
+        </p>
     </section class="command">
 
     <section class="command">
@@ -335,12 +336,12 @@
 
     <footer>
         <p>
-            <strong>Źródła: 
+            <strong>Źródła:
             <ul>
                 <li><a href="https://help.github.com/en/github/using-git/setting-your-username-in-git">https://help.github.com/en/github/using-git/setting-your-username-in-git</a></li>
                 <li><a href="https://git-scm.com/docs/git-pull">https://git-scm.com/docs/git-pull</a></li>
             </ul>
-		    </strong>        
+		    </strong>
 	</p>
     </footer>
 </body>
