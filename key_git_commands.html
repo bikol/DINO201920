@@ -4,21 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Kluczowe komendy programu **Git**</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
     <style>
         .task-list-item {
             list-style-type: none;
         }
+
         .task-list-item-checkbox {
             margin-left: -20px;
             vertical-align: middle;
         }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
             font-size: 14px;
             line-height: 1.6;
         }
+
         .command {
             border-bottom: 1px solid lightgrey;
             margin-bottom: 64px;
@@ -32,14 +37,19 @@
     <section class="command">
         <h3> <code>git config --global user.name &quot;&quot;</code> </h3>
         <p>
-            Komenda zmieniająca naszą <strong>lokalną</strong> nazwę w aplikacji Git. Nazwa ta służy do podpisywania commitów wysyłanych do bazy głównej, nie jest w żaden sposób powiązana z naszą nazwą na przykład na GitHubie. Trzeba zaznaczyć, że zmiana nazwy nie spowoduje zmiany w poprzednich commitach, które zostały wysłane na serwer główny, a jedynie wpłynie na każde przyszłe commity. Parametry:
+            Komenda zmieniająca naszą <strong>lokalną</strong> nazwę w aplikacji Git. Nazwa ta służy do podpisywania
+            commitów wysyłanych do bazy głównej, nie jest w żaden sposób powiązana z naszą nazwą na przykład na
+            GitHubie. Trzeba zaznaczyć, że zmiana nazwy nie spowoduje zmiany w poprzednich commitach, które zostały
+            wysłane na serwer główny, a jedynie wpłynie na każde przyszłe commity. Parametry:
             <ul>
                 <li>
-                    --global: ustawia nazwę dla każdego repozytorium, nad którym pracujemy. Bez tego parametru, zmienimy jedynie nazwę w repozytorium, w którym się znajdujemy
+                    --global: ustawia nazwę dla każdego repozytorium, nad którym pracujemy. Bez tego parametru, zmienimy
+                    jedynie nazwę w repozytorium, w którym się znajdujemy
                 </li>
                 <li>
                     &quot;&quot; - w cudzysłowie podajemy swoją nazwę
-                    Dodatkowo możemy jeszcze powiązać adres e-mail z gitem zastępując parametr <code>user.name</code> parametrem <code>user.email</code>
+                    Dodatkowo możemy jeszcze powiązać adres e-mail z gitem zastępując parametr <code>user.name</code>
+                    parametrem <code>user.email</code>
                 </li>
             </ul>
         </p>
@@ -48,7 +58,9 @@
     <section class="command">
         <h3> <code>git reset HEAD</code> </h3>
         <p>
-            Wywołanie tej komendy usuwa <strong>wszystkie</strong> pliki z poczekalni (pliki staged) na aktualnie używanym branch'u. Przydatne, gdy chcemy zrobić pull i wiemy, że pull ten nie zmieni plików, które mamy aktualnie w poczekalni. (by zrobić pull <strong>nie możemy</strong> mieć plików w poczekalni)
+            Wywołanie tej komendy usuwa <strong>wszystkie</strong> pliki z poczekalni (pliki staged) na aktualnie
+            używanym branch'u. Przydatne, gdy chcemy zrobić pull i wiemy, że pull ten nie zmieni plików, które mamy
+            aktualnie w poczekalni. (by zrobić pull <strong>nie możemy</strong> mieć plików w poczekalni)
         </p>
 
         <p>
@@ -76,12 +88,14 @@
         </p>
 
         <p>
-            (Na marginesie: <code>git reset HEAD <em>nazwa_pliku</em> </code> wycofuje z poczekalni <strong>tylko</strong> plik podany jako argument.)
+            (Na marginesie: <code>git reset HEAD <em>nazwa_pliku</em> </code> wycofuje z poczekalni
+            <strong>tylko</strong> plik podany jako argument.)
         </p>
 
 
         <p>
-            Źródło: <a href="https://git-scm.com/book/pl/v2/Podstawy-Gita-Cofanie-zmian">https://git-scm.com/book/pl/v2/Podstawy-Gita-Cofanie-zmian</a>
+            Źródło: <a
+                href="https://git-scm.com/book/pl/v2/Podstawy-Gita-Cofanie-zmian">https://git-scm.com/book/pl/v2/Podstawy-Gita-Cofanie-zmian</a>
         </p>
 
     </section>
@@ -89,7 +103,8 @@
     <section class="command">
         <h3><code>gitk -all</code></h3>
         <p>
-            Wyświetla zmiany w repozytorium lub w wybranych commitach. Obejmuje to wizualizację wykresu commitów, pokazanie informacji związanych z każdym commitów oraz plików w drzewach każdej wersji.<br>
+            Wyświetla zmiany w repozytorium lub w wybranych commitach. Obejmuje to wizualizację wykresu commitów,
+            pokazanie informacji związanych z każdym commitów oraz plików w drzewach każdej wersji.<br>
             Opcja <strong>--all</strong> pokazuje wszystkie referncje (gałęzie, tagi itp.).
         </p>
     </section>
@@ -97,11 +112,15 @@
     <section class="command">
         <h3><code>git branch --merged</code></h3>
         <p>
-            Komenda git branch bez parametrów umożliwia użytkownikowi sprawdzenie użytkownikowi jego aktualnych gałęzi. Gałąź przy której znajduje się znak &quot;&ast;&quot; Oznacza, że jest to gałąź na której użytkownik aktualnie pracuje.
-	    <ul>
-	    <li> --merged: wyświetla które gałęzie już zostały zmergowane z gałęzią na której użytkownik aktualnie pracował. Gałęzie które nie posiadają &quot;&ast;&quot; są bezpieczne do usunięcia, gdyż zmiany z nich zostały już dodane do 
-		    aktualnej gałęzi.</li>
-	    <ul>
+            Komenda git branch bez parametrów umożliwia użytkownikowi sprawdzenie użytkownikowi jego aktualnych gałęzi.
+            Gałąź przy której znajduje się znak &quot;&ast;&quot; Oznacza, że jest to gałąź na której użytkownik
+            aktualnie pracuje.
+            <ul>
+                <li> --merged: wyświetla które gałęzie już zostały zmergowane z gałęzią na której użytkownik aktualnie
+                    pracował. Gałęzie które nie posiadają &quot;&ast;&quot; są bezpieczne do usunięcia, gdyż zmiany z
+                    nich zostały już dodane do
+                    aktualnej gałęzi.</li>
+                <ul>
         </p>
     </section>
 
@@ -114,24 +133,32 @@
 
     <section class="command">
         <h3><code>git pull &quot;remote&quot; &quot;branch&quot;</code></h3>
-        <p> 
-        Uruchomienie <code>git pull</code> rozpoczyna ściągnięcie danych z serwera oraz próbuje automatycznie scalić zmiany z kodem znajdującym się lokalnie. Jest to połączenie dwóch komend: <code>git fetch</code> - ściągnięcie danych i <code>git merge</code> - połączenie zmian. Nie modyfikując podczas pracy repozytorium i gałęzi wystarczy wpisać samo <code>git pull</code>. Domyślne wartości repozytorium i brancha zostaną odczytane z konfiguracji gita (ustawienia "remote" oraz "merge"). <br> 
-        Parametry:
-		    <ul>
-    			<li>"remote" to nazwa repozytorium, na przykład gdy stworzyliśmy je poprzez sklonowanie, oryginalne repozytorium będzie miało domyślnie nazwę <strong>origin</strong>.</li>
-    			<li>"branch" to nazwa gałęzi z której mają być pobrane zmiany. Automatycznie główny branch to <strong>master</strong>.</li>
-		    </ul>
+        <p>
+            Uruchomienie <code>git pull</code> rozpoczyna ściągnięcie danych z serwera oraz próbuje automatycznie scalić
+            zmiany z kodem znajdującym się lokalnie. Jest to połączenie dwóch komend: <code>git fetch</code> -
+            ściągnięcie danych i <code>git merge</code> - połączenie zmian. Nie modyfikując podczas pracy repozytorium i
+            gałęzi wystarczy wpisać samo <code>git pull</code>. Domyślne wartości repozytorium i brancha zostaną
+            odczytane z konfiguracji gita (ustawienia "remote" oraz "merge"). <br>
+            Parametry:
+            <ul>
+                <li>"remote" to nazwa repozytorium, na przykład gdy stworzyliśmy je poprzez sklonowanie, oryginalne
+                    repozytorium będzie miało domyślnie nazwę <strong>origin</strong>.</li>
+                <li>"branch" to nazwa gałęzi z której mają być pobrane zmiany. Automatycznie główny branch to
+                    <strong>master</strong>.</li>
+            </ul>
         </p>
     </section>
 
     <section class="command">
         <h3><code>git config --global user.email &quot;&quot;</code></h3>
         <p>
-            <li>Konfiguracja adresu mailowego. Jest to istotne ponieważ każda operacja zatwierdzona w Git korzysta z tej informacji.</li>
+            <li>Konfiguracja adresu mailowego. Jest to istotne ponieważ każda operacja zatwierdzona w Git korzysta z tej
+                informacji.</li>
             <li>
-                  $ git config --global user.email jankowalski@example.com
+                $ git config --global user.email jankowalski@example.com
             </li>
-            <li>Jeżeli użyjemy --global to konfiguracja bedzie dokonana jednorazowo. Git za każdym razem będzie z tej konfiguracji kozystał. </li>
+            <li>Jeżeli użyjemy --global to konfiguracja bedzie dokonana jednorazowo. Git za każdym razem będzie z tej
+                konfiguracji kozystał. </li>
         </p>
     </section class="command">
 
@@ -145,20 +172,20 @@
     <section class="command">
         <h3><code>git checkout -b &quot;branch&quot;</code></h3>
         <p>
-			Gałęzie (branch'e) są używane do rozwijania poszczegółnych funkcjonalności.
-			Branch <b><code>master</code></b> jest domyślną gałęzią przy tworzeniu repozytorium, 
-			najczęszczej na tej gałęzi są wyłącznie gotowe źródła projektów.			
+            Gałęzie (branch'e) są używane do rozwijania poszczegółnych funkcjonalności.
+            Branch <b><code>master</code></b> jest domyślną gałęzią przy tworzeniu repozytorium,
+            najczęszczej na tej gałęzi są wyłącznie gotowe źródła projektów.
         </p>
-		<p>
-			Do tworzenia nowego branch'u jest używane polecenie 
-		</p>	
-		<pre>
+        <p>
+            Do tworzenia nowego branch'u jest używane polecenie
+        </p>
+        <pre>
 <!--		--> git chceckout -b &ltnazwa-nowego-branch'u&gt &ltnazwa-branch'u-początkowego&gt
 		</pre>
-		<p>
-			Przykład użycia
-		</p>	
-		<pre>
+        <p>
+            Przykład użycia
+        </p>
+        <pre>
 <!--		--> git chceckout -b feature-logowanie master
 		</pre>
     </section class="command">
@@ -180,20 +207,22 @@
     <section class="command">
         <h3><code>git fetch &quot;remote&quot; &quot;branch&quot;</code></h3>
         <p>
-	   <ul> 
-		<li>
-		   Komenda fetch pobiera commity, pliki i odnosi się ze zdalnego repozytorium do naszego lokalnego.
-		</li>
-		<li>
-		   git fetch < remote > sprowadza wszystkie branche z repozytorium. Pobiera również wszsytkie wymagane commity i pliki z innych repozytoriów.          
-		</li>
-		<li>
-	           git fetch < remote > <  branch > robi to samo co powyższa komenda, ale sprowadza tylko określony branch.
-	        </li>
-		<li>
-		   Przykład użycia: git fetch PRA2018-2019 JSONandXMLStart
-		</li>	  
-	    </ul>	
+            <ul>
+                <li>
+                    Komenda fetch pobiera commity, pliki i odnosi się ze zdalnego repozytorium do naszego lokalnego.
+                </li>
+                <li>
+                    git fetch < remote> sprowadza wszystkie branche z repozytorium. Pobiera również wszsytkie wymagane
+                        commity i pliki z innych repozytoriów.
+                </li>
+                <li>
+                    git fetch < remote>
+                        < branch> robi to samo co powyższa komenda, ale sprowadza tylko określony branch.
+                </li>
+                <li>
+                    Przykład użycia: git fetch PRA2018-2019 JSONandXMLStart
+                </li>
+            </ul>
         </p>
     </section class="command">
 
@@ -217,7 +246,7 @@
             Wyświetla listę gałęzi wraz z dodatkowymi informacjami.
             <ul>
                 <li>
-                    Znak "*" przed nazwą gałęzi oznacza naszą obecną gałąź HEAD. 
+                    Znak "*" przed nazwą gałęzi oznacza naszą obecną gałąź HEAD.
                 </li>
                 <li>
                     Informacja na której gałęzi jest bazowana.
@@ -260,14 +289,20 @@
     <section class="command">
         <h3><code>git add .</code></h3>
         <p>
-            <!-- describe here -->
+            Komenda <code>git add .</code> dodaje wszystkie wprowadzone zmiany z folderu roboczego do "poczekalni".
+            <ul>
+                <li> Informuje gita, że użytkownik będzie chciał uwzglednić dodane zmiany w następnym commicie</li>
+                <li> Przykład użycia: <code>git add .</code> .(kto by się spodziewał)</li>
+            </ul>
         </p>
     </section>
 
     <section class="command">
         <h3><code>git checkout &quot;branch&quot;</code></h3>
         <p>
-            Komenda pozwalająca nawigować między branchami utworzonymi przez komendę &quot;branch&quot;. Zmiana &quot;brancha&quot; updatuje pliki w katalogu roboczym, tak aby zgadzały się z plikami na branchu, na który przechodzimy. Wszystkie commity są również rejestrowane na branchu, na który przeszliśmy.
+            Komenda pozwalająca nawigować między branchami utworzonymi przez komendę &quot;branch&quot;. Zmiana
+            &quot;brancha&quot; updatuje pliki w katalogu roboczym, tak aby zgadzały się z plikami na branchu, na który
+            przechodzimy. Wszystkie commity są również rejestrowane na branchu, na który przeszliśmy.
             <br /><strong>Zastosowanie:</strong>
             <ul>
                 <li>
@@ -277,13 +312,14 @@
             <strong>Przykłady:</strong>
             <ul>
                 <li>
-                    git checkout &lt;test_branch&gt;  - przejście z obecnego brancha na test_branch
+                    git checkout &lt;test_branch&gt; - przejście z obecnego brancha na test_branch
                 </li>
                 <li>
-                    git checkout -b &lt;new_branch&gt;  - utworzenie nowego brancha i przejście z obecnego brancha na new_branch
+                    git checkout -b &lt;new_branch&gt; - utworzenie nowego brancha i przejście z obecnego brancha na
+                    new_branch
                 </li>
             </ul>
-        </p>   
+        </p>
     </section class="command">
 
     <section class="command">
@@ -296,22 +332,26 @@
     <section class="command">
         <h3><code>git blame -C &quot;filename&quot;</code></h3>
         <p>
-            W ogólności komenda git-blame informuje nas o tym, w której poprawce (commit) i jaki autor zmodyfikował konkretne linie w danym pliku. Opcja -C może być użyta trzy razy.
-			<ul>
-				<li>
-					 Użyta raz wykrywa linie przeniesione, bądź skopiowane z innych plików, które były modyfikowane wewnątrz tej samej poprawki. Opcja jest szczególnie użyteczna w przypadku, gdy dokonujemy reorganizacji kodu i przenosimy jego fragmenty między różnymi plikami.
-				</li>
-				<li>
-					Użyta podwójnie, dodatkowo szuka linii skopiowanych z innych plików, działa tylko dla poprawki w której stworzono plik.
-				</li>
-				<li>
-					Użyta potrójnie, dodatkowo szuka linii skopiowanych z innycy plików we wszystkich poprawkach.
-				</li>
-				<li>
-					Przykład użycia: "git blame -C -C -C dest"
-				</li>
-			</ul>
-        </p>    
+            W ogólności komenda git-blame informuje nas o tym, w której poprawce (commit) i jaki autor zmodyfikował
+            konkretne linie w danym pliku. Opcja -C może być użyta trzy razy.
+            <ul>
+                <li>
+                    Użyta raz wykrywa linie przeniesione, bądź skopiowane z innych plików, które były modyfikowane
+                    wewnątrz tej samej poprawki. Opcja jest szczególnie użyteczna w przypadku, gdy dokonujemy
+                    reorganizacji kodu i przenosimy jego fragmenty między różnymi plikami.
+                </li>
+                <li>
+                    Użyta podwójnie, dodatkowo szuka linii skopiowanych z innych plików, działa tylko dla poprawki w
+                    której stworzono plik.
+                </li>
+                <li>
+                    Użyta potrójnie, dodatkowo szuka linii skopiowanych z innycy plików we wszystkich poprawkach.
+                </li>
+                <li>
+                    Przykład użycia: "git blame -C -C -C dest"
+                </li>
+            </ul>
+        </p>
     </section class="command">
 
     <section class="command">
@@ -321,7 +361,8 @@
             <ul>
                 <li>
                     Dodatkowe gałęzie projektu są przydatne do tworzenia różnych wersji produktu, aby
-                    następnie sprawnie pokazać klientowi dwie odmienne wersje i dowiedzieć się która bardziej mu odpowiada.
+                    następnie sprawnie pokazać klientowi dwie odmienne wersje i dowiedzieć się która bardziej mu
+                    odpowiada.
                 </li>
                 <li>
                     Przykład użycia: "git branch nazwaNowegoBrancha"
@@ -335,13 +376,15 @@
 
     <footer>
         <p>
-            <strong>Źródła: 
-            <ul>
-                <li><a href="https://help.github.com/en/github/using-git/setting-your-username-in-git">https://help.github.com/en/github/using-git/setting-your-username-in-git</a></li>
-                <li><a href="https://git-scm.com/docs/git-pull">https://git-scm.com/docs/git-pull</a></li>
-            </ul>
-		    </strong>        
-	</p>
+            <strong>Źródła:
+                <ul>
+                    <li><a
+                            href="https://help.github.com/en/github/using-git/setting-your-username-in-git">https://help.github.com/en/github/using-git/setting-your-username-in-git</a>
+                    </li>
+                    <li><a href="https://git-scm.com/docs/git-pull">https://git-scm.com/docs/git-pull</a></li>
+                </ul>
+            </strong>
+        </p>
     </footer>
 </body>
 
