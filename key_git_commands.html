@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -138,8 +138,19 @@
     <section class="command">
         <h3><code>git diff --staged</code></h3>
         <p>
-            <!-- describe here -->
+            <li><code>git diff key_git_commands.html</code> wyświetla szczegółowe zmiany w wybranym pliku</li>
+            <li><code>git diff --staged</code> pokazuje zmiany tylko w 'staging area'</li>
+            <li>'staging area' czyli tak zwana 'przechowalnia', jest to prosty plik przechowywany w katalogu Git zawierający informacje o tym czego dotyczyć bedzię następna operacja <code>commit</code></li>
         </p>
+        <p>
+            Przykład pracy z git: 
+            <ol><li>Wprowadzenie zmian pliku w katalogu roboczym</li>
+            <li>Oznaczenie zmodyfikowanych plików jako śledzone, dodając ich bieżący stan do 'staging area'</li>
+            <li><code>commit</code> zmian podczas którego zawartość plików z 'staging area' zapisywana jest jako migawka projektu w katalogu Git</li></ol>
+        </p>
+        <p>Przyklad użycia: </p>
+        <pre>git diff --staged key_git_commands.html</pre>
+
     </section class="command">
 
     <section class="command">
