@@ -296,10 +296,30 @@ Podając -vv dopisana zostaje inforacja o repozytorium upstream dla brancha
 
     <section class="command">
         <h3><code>git bisect (start, bad, good, reset)</code></h3>
-        <p>
-            <!-- describe here -->
-        </p>
-    </section class="command">
+        <p> 
+        <code>git bisect </code> wykorzystując wyszukiwanie binarne pozwala na znalezienie commita, po którym w kodzie znalazł się bug.
+	<ul>
+    		<li><code>git bisect start</code> rozpoczyna procedurę "git bisect"</li>
+    		<li><code>git bisect bad</code>użytkownik podaje commit, w którym znajduje się bug</li>
+		<li><code>git bisect good</code> użytkownik podaje commit, o którym wie, że nie znajduje się w nim wyżej wymieniony bug</li>
+	</ul>
+	Po podaniu poprawnego oraz błędnego commita <code>git bisect</code> wybiera commit pośrodku nich i pokazuje go użytkownikowi, a ten stwierdza, czy podany commit zawiera buga czy nie.
+	Jeżeli commit jest poprawny, użytkownik wpisuje: <code>git bisect good</code>, a w przeciwnym wypadku <code>git bisect bad</code>
+	Następnie git bisect znów wybierze commit pośrodku, z zakresu dobry-ostatnio sprawdzony lub ostatnio sprawdzony-zły. W zależności od odpowiedzi użytkownika proces ten będzie się powtarzał, aż nie zostanie żaden commit do sprawdzenia, a procedura wskaże pierwszy commit, który zawierał buga.
+	Po zakończeniu procesu git bisect należy użyć <code>get bisect reset </code> by wrócić do oryginalnego HEADa.
+		<p>
+		<h3>Przykład:</h3>
+		<ul>
+			<li>$ git bisect start
+			<li>$ git bisect bad   			// wybranie wersji z bugiem (brak podania wersji oznacza wybranie obecnej wersji)</li>
+			<li>$ git bisect good v2.5.2    // wybranie wersji bez buga</li>
+			<li>$ git bisect bad 			// commit wskazany przez <code>git bisect</code> zawiera buga</li>
+			<li>$ git bisect bad 			// kolejny raz commit wskazany przez <code>git bisect</code> zawiera buga</li>
+			<li>$ git bisect reset v2.4.8   // po wskazaniu pierwszego błędnego pliku kończymy procedurę i wracamy do wybranego commita (brak podania wersji wróci do commita sprzed rozpoczęcia procedury <code>git bisect</code></li>
+		</ul>
+		</p>
+	</p>
+    </section>
 
     <section class="command">
         <h3><code>git commit -a -m &quot;&quot;</code></h3>
