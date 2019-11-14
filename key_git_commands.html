@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -138,8 +138,19 @@
     <section class="command">
         <h3><code>git diff --staged</code></h3>
         <p>
-            <!-- describe here -->
+            <li><code>git diff key_git_commands.html</code> wyświetla szczegółowe zmiany w wybranym pliku</li>
+            <li><code>git diff --staged</code> pokazuje zmiany tylko w 'staging area'</li>
+            <li>'staging area' czyli tak zwana 'przechowalnia', jest to prosty plik przechowywany w katalogu Git zawierający informacje o tym czego dotyczyć bedzię następna operacja <code>commit</code></li>
         </p>
+        <p>
+            Przykład pracy z git:
+            <ol><li>Wprowadzenie zmian pliku w katalogu roboczym</li>
+            <li>Oznaczenie zmodyfikowanych plików jako śledzone, dodając ich bieżący stan do 'staging area'</li>
+            <li><code>commit</code> zmian podczas którego zawartość plików z 'staging area' zapisywana jest jako migawka projektu w katalogu Git</li></ol>
+        </p>
+        <p>Przyklad użycia: </p>
+        <pre>git diff --staged key_git_commands.html</pre>
+
     </section class="command">
 
     <section class="command">
@@ -173,7 +184,19 @@
     <section class="command">
         <h3><code>git branch -d &quot;branch&quot;</code></h3>
         <p>
-            <!-- describe here -->
+	   <ul>
+	       <li>
+		  Komenda branch służy do wyświetlania, tworzenia i usuwania gałęzi.
+	       <li>
+		  git branch -d służy do usuwania wybranej gałęzi.
+	       </li>
+	       <li>
+		  Przykład użycia: git branch -d testing
+	       </li>
+	       <li>
+		  Usunięta zostanie gałąź testing
+	       </li>
+	    </ul>
         </p>
     </section>
 
@@ -201,19 +224,46 @@
         <h3><code>git config --global color.ui true</code></h3>
         <p>
             <!-- describe here -->
+            Komenda powoduje edycję wyglądu, a dokładniej konfiguracji koloru komend git'a. Parametr "true" powoduje, że output używa koloru kiedy pisze na terminalu.
+            Kolory pomagają w odzczytywaniu wyników działania gita.
         </p>
     </section class="command">
 
     <section class="command">
         <h3><code>git commit &quot;filename&quot;</code></h3>
         <p>
-            <!-- describe here -->
+          <strong>Zatwierdza</strong> plik o nazwie "filename".
+            <ul>
+                <li>
+                    Plik "filename" jest zatwierdzony w HEAD, ale nie w zdalnym repozytorium.
+                </li>
+                <li>
+                    Przykład użycia "git commit lista_studentow.txt"
+                </li>
+                <li>
+                    Warto używać także parametru funkcji commit: -m "komentarz", dzięki któremu dodajemy komentarz do dabego commita
+                </li>
+            </ul>
         </p>
     </section>
 
     <section class="command">
         <h3><code>git branch -v</code></h3>
         <p>
+
+            Wypisuje branche, które są na naszym repozytorium, zaznaczając gwiazdką aktualny branch. Dodatkowo dostajemy informację o commicie na który wskazuje HEAD brancha - jego hash (sha1) oraz nazwę.
+        </p><pre>
+$ git branch -v
+
+master bb2ce58 readme update
+  nowy   bb2ce58 readme update
+* nowy2  c31efe1 added new file
+  nowy7  c31efe1 added new file
+</pre> </p><p>
+Zamiast przełącznika -v można wpisać pełne, `--verbose`.
+    </p><p>
+Podając -vv dopisana zostaje inforacja o repozytorium upstream dla brancha
+
             Wyświetla listę gałęzi wraz z dodatkowymi informacjami.
             <ul>
                 <li>
@@ -226,6 +276,7 @@
                     Ostatni commit na danej gałęzi.
                 </li>
             </ul>
+
         </p>
     </section class="command">
 
@@ -246,19 +297,52 @@
     <section class="command">
         <h3><code>git bisect (start, bad, good, reset)</code></h3>
         <p>
-            <!-- describe here -->
-        </p>
-    </section class="command">
+        <code>git bisect </code> wykorzystując wyszukiwanie binarne pozwala na znalezienie commita, po którym w kodzie znalazł się bug.
+	<ul>
+    		<li><code>git bisect start</code> rozpoczyna procedurę "git bisect"</li>
+    		<li><code>git bisect bad</code>użytkownik podaje commit, w którym znajduje się bug</li>
+		<li><code>git bisect good</code> użytkownik podaje commit, o którym wie, że nie znajduje się w nim wyżej wymieniony bug</li>
+	</ul>
+	Po podaniu poprawnego oraz błędnego commita <code>git bisect</code> wybiera commit pośrodku nich i pokazuje go użytkownikowi, a ten stwierdza, czy podany commit zawiera buga czy nie.
+	Jeżeli commit jest poprawny, użytkownik wpisuje: <code>git bisect good</code>, a w przeciwnym wypadku <code>git bisect bad</code>
+	Następnie git bisect znów wybierze commit pośrodku, z zakresu dobry-ostatnio sprawdzony lub ostatnio sprawdzony-zły. W zależności od odpowiedzi użytkownika proces ten będzie się powtarzał, aż nie zostanie żaden commit do sprawdzenia, a procedura wskaże pierwszy commit, który zawierał buga.
+	Po zakończeniu procesu git bisect należy użyć <code>get bisect reset </code> by wrócić do oryginalnego HEADa.
+		<p>
+		<h3>Przykład:</h3>
+		<ul>
+			<li>$ git bisect start
+			<li>$ git bisect bad   			// wybranie wersji z bugiem (brak podania wersji oznacza wybranie obecnej wersji)</li>
+			<li>$ git bisect good v2.5.2    // wybranie wersji bez buga</li>
+			<li>$ git bisect bad 			// commit wskazany przez <code>git bisect</code> zawiera buga</li>
+			<li>$ git bisect bad 			// kolejny raz commit wskazany przez <code>git bisect</code> zawiera buga</li>
+			<li>$ git bisect reset v2.4.8   // po wskazaniu pierwszego błędnego pliku kończymy procedurę i wracamy do wybranego commita (brak podania wersji wróci do commita sprzed rozpoczęcia procedury <code>git bisect</code></li>
+		</ul>
+		</p>
+	</p>
+    </section>
 
     <section class="command">
         <h3><code>git commit -a -m &quot;&quot;</code></h3>
         <p>
-            <!-- describe here -->
+          <ul>
+              Komenda git commit wprowadza zmiany do lokalnego repozytorium.
+            <li>
+              Parametr -a powoduje, że commit zawiera wszystkie obecnie zmieniane pliki. Także nie zawiera plików nowo utworzonych.
+            </li>
+            <li>
+              Parametr -m umozliwia wprowadzenie komentarza, czyli opisanie naszego commita. Każdy commit powinien mieć komentarz.
+            </li>
+            <li>
+              Przykład użycia: git commit -a -m "komentarz"
+            </li>
+          </ul>
+
         </p>
     </section>
 
     <section class="command">
         <h3><code>git add .</code></h3>
+             <p>
                   Komenda &quotgit add .&quot aktualizuje index wykorzystując obecną zawartość folderu w drzewie pracy, aby całą jego zawartość przygotować do uruchomienia komendy commit.
             <ul>
             <li> &quot--dry-run&quot:
@@ -273,8 +357,32 @@
             <li> &quot--refresh&quot:
               komenda zamiast dodać pliki, zaktualizuje ich informacje w indexie
             </li>
-            <ul>
+            </ul>
               </p>
+<section class="command">
+        <h3><code>git add .</code></h3>
+        <p>
+            Komenda dodająca wszystkie <strong>zmienione</strong> i <strong>nowopowstałe</strong> pliki z katalogu roboczego i jego podkatalogów pod kontrolę wersji lub do poczekalni (stage). Zignorowane zostaną jedynie pliki zawarte w specjalnym pliku <strong>.gitignore</strong>. Warto również zaznaczyć, że "git add ." <strong>nie</strong> doda zmian dotyczących <strong>usunięć plików</strong>.
+
+            <li> Przydatne, gdy chcemy utworzyć commita dla dużej liczby zmodyfikowanych lub nowych plików lub gdy pliki, które chcemy dodać do poczekalni (stage) są rozmieszczone w różnych podkatalogach katalogu roboczego.
+            </li>
+            <li> Przykład użycia w przykładowym katalogu root:<br>
+                root<br>
+                |_______plikRoot.txt<br>
+                |_______katalogA<br>
+                |..................|___________plikA.txt<br>
+                |_______katalogB<br>
+                |..................|___________plikB.txt<br>
+                |_______katalogC<br>
+                ...................|___________plikC.txt<br><br>
+
+                $ git add .<br><br>
+
+                Efekt: pliki: plikRoot.txt, plikA.txt, plikB.txt, plikC.txt zostały dodane do poczekalni (stage).
+
+
+
+        </p>
     </section>
 
     <section class="command">
@@ -302,7 +410,12 @@
     <section class="command">
         <h3><code>git remote add &quot;remote_name&quot; &quot;git url&quot;</code></h3>
         <p>
-            <!-- describe here -->
+            Dodaje nowe <strong>zdalne</strong> repozytorium (np. na GitHubie), do którego możemy przesyłać repozytorium lokalne.
+            <ul>
+                <li> Parametr &quot;remote_name&quot; określa nazwę zdalnego repozytorium (np. origin, upstream).</li>
+                <li> Parametr &quot;git url&quot; określa adres URL zdalnego repozytorium (np. https://github.com/user/repo.git</li>
+                <li> Przykład użycia: git add upstream https://github.com/bikol/DINO201920.git</li>
+            </ul>
         </p>
     </section class="command">
 
@@ -342,6 +455,13 @@
             </ul>
 
 
+        </p>
+    </section class="command">
+
+<section class="command">
+        <h3><code>git fetch "remote" "branch"</code></h3>
+        <p>
+            Polecenie to sięga do zdalnego projektu i pobiera z niego wszystkie dane, których jeszcze nie masz.
         </p>
     </section class="command">
 
