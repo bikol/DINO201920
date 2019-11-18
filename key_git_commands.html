@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -99,7 +99,7 @@
         <p>
             Komenda git branch bez parametrów umożliwia użytkownikowi sprawdzenie użytkownikowi jego aktualnych gałęzi. Gałąź przy której znajduje się znak &quot;&ast;&quot; Oznacza, że jest to gałąź na której użytkownik aktualnie pracuje.
 	    <ul>
-	    <li> --merged: wyświetla które gałęzie już zostały zmergowane z gałęzią na której użytkownik aktualnie pracował. Gałęzie które nie posiadają &quot;&ast;&quot; są bezpieczne do usunięcia, gdyż zmiany z nich zostały już dodane do 
+	    <li> --merged: wyświetla które gałęzie już zostały zmergowane z gałęzią na której użytkownik aktualnie pracował. Gałęzie które nie posiadają &quot;&ast;&quot; są bezpieczne do usunięcia, gdyż zmiany z nich zostały już dodane do
 		    aktualnej gałęzi.</li>
 	    <ul>
         </p>
@@ -114,8 +114,8 @@
 
     <section class="command">
         <h3><code>git pull &quot;remote&quot; &quot;branch&quot;</code></h3>
-        <p> 
-        Uruchomienie <code>git pull</code> rozpoczyna ściągnięcie danych z serwera oraz próbuje automatycznie scalić zmiany z kodem znajdującym się lokalnie. Jest to połączenie dwóch komend: <code>git fetch</code> - ściągnięcie danych i <code>git merge</code> - połączenie zmian. Nie modyfikując podczas pracy repozytorium i gałęzi wystarczy wpisać samo <code>git pull</code>. Domyślne wartości repozytorium i brancha zostaną odczytane z konfiguracji gita (ustawienia "remote" oraz "merge"). <br> 
+        <p>
+        Uruchomienie <code>git pull</code> rozpoczyna ściągnięcie danych z serwera oraz próbuje automatycznie scalić zmiany z kodem znajdującym się lokalnie. Jest to połączenie dwóch komend: <code>git fetch</code> - ściągnięcie danych i <code>git merge</code> - połączenie zmian. Nie modyfikując podczas pracy repozytorium i gałęzi wystarczy wpisać samo <code>git pull</code>. Domyślne wartości repozytorium i brancha zostaną odczytane z konfiguracji gita (ustawienia "remote" oraz "merge"). <br>
         Parametry:
 		    <ul>
     			<li>"remote" to nazwa repozytorium, na przykład gdy stworzyliśmy je poprzez sklonowanie, oryginalne repozytorium będzie miało domyślnie nazwę <strong>origin</strong>.</li>
@@ -138,26 +138,37 @@
     <section class="command">
         <h3><code>git diff --staged</code></h3>
         <p>
-            <!-- describe here -->
+            <li><code>git diff key_git_commands.html</code> wyświetla szczegółowe zmiany w wybranym pliku</li>
+            <li><code>git diff --staged</code> pokazuje zmiany tylko w 'staging area'</li>
+            <li>'staging area' czyli tak zwana 'przechowalnia', jest to prosty plik przechowywany w katalogu Git zawierający informacje o tym czego dotyczyć bedzię następna operacja <code>commit</code></li>
         </p>
+        <p>
+            Przykład pracy z git: 
+            <ol><li>Wprowadzenie zmian pliku w katalogu roboczym</li>
+            <li>Oznaczenie zmodyfikowanych plików jako śledzone, dodając ich bieżący stan do 'staging area'</li>
+            <li><code>commit</code> zmian podczas którego zawartość plików z 'staging area' zapisywana jest jako migawka projektu w katalogu Git</li></ol>
+        </p>
+        <p>Przyklad użycia: </p>
+        <pre>git diff --staged key_git_commands.html</pre>
+
     </section class="command">
 
     <section class="command">
         <h3><code>git checkout -b &quot;branch&quot;</code></h3>
         <p>
 			Gałęzie (branch'e) są używane do rozwijania poszczegółnych funkcjonalności.
-			Branch <b><code>master</code></b> jest domyślną gałęzią przy tworzeniu repozytorium, 
-			najczęszczej na tej gałęzi są wyłącznie gotowe źródła projektów.			
+			Branch <b><code>master</code></b> jest domyślną gałęzią przy tworzeniu repozytorium,
+			najczęszczej na tej gałęzi są wyłącznie gotowe źródła projektów.
         </p>
 		<p>
-			Do tworzenia nowego branch'u jest używane polecenie 
-		</p>	
+			Do tworzenia nowego branch'u jest używane polecenie
+		</p>
 		<pre>
 <!--		--> git chceckout -b &ltnazwa-nowego-branch'u&gt &ltnazwa-branch'u-początkowego&gt
 		</pre>
 		<p>
 			Przykład użycia
-		</p>	
+		</p>
 		<pre>
 <!--		--> git chceckout -b feature-logowanie master
 		</pre>
@@ -173,51 +184,96 @@
     <section class="command">
         <h3><code>git branch -d &quot;branch&quot;</code></h3>
         <p>
-            <!-- describe here -->
+	   <ul>
+	       <li>
+		  Komenda branch służy do wyświetlania, tworzenia i usuwania gałęzi.
+	       </li>  
+          <li>
+		  git branch -d służy do usuwania podanej przez użytkownika gałęzi, pod warunkiem, że jest ona w pełni zmergowana lub znajduje się w HEADzie
+	       </li>
+	       <li>
+		  Przykład użycia: <code>$ git branch -d testing</code>
+	       </li>
+	       <li>
+		  Usunięta zostanie gałąź testing.
+	       </li>
+	    </ul>
         </p>
     </section>
 
     <section class="command">
         <h3><code>git fetch &quot;remote&quot; &quot;branch&quot;</code></h3>
         <p>
-	   <ul> 
+	   <ul>
 		<li>
 		   Komenda fetch pobiera commity, pliki i odnosi się ze zdalnego repozytorium do naszego lokalnego.
 		</li>
 		<li>
-		   git fetch < remote > sprowadza wszystkie branche z repozytorium. Pobiera również wszsytkie wymagane commity i pliki z innych repozytoriów.          
+		   git fetch < remote > sprowadza wszystkie branche z repozytorium. Pobiera również wszsytkie wymagane commity i pliki z innych repozytoriów.
 		</li>
 		<li>
 	           git fetch < remote > <  branch > robi to samo co powyższa komenda, ale sprowadza tylko określony branch.
 	        </li>
 		<li>
 		   Przykład użycia: git fetch PRA2018-2019 JSONandXMLStart
-		</li>	  
-	    </ul>	
+		</li>
+	    </ul>
         </p>
     </section class="command">
 
     <section class="command">
         <h3><code>git config --global color.ui true</code></h3>
         <p>
-            <!-- describe here -->
-        </p>
+            <!-- describe here -->    
+            Komenda powoduje edycję wyglądu, a dokładniej konfiguracji koloru komend git'a. Parametr "true" powoduje, że output używa koloru kiedy pisze na terminalu.
+            Kolory pomagają w odzczytywaniu wyników działania gita.
+        </p>    
     </section class="command">
 
     <section class="command">
         <h3><code>git commit &quot;filename&quot;</code></h3>
         <p>
-            <!-- describe here -->
+
+Pracuje nad projektem i mam swoje repozytorium na komputerze osobistym (sklonowane z gita), gdy chcę "pushnąć"
+update tego repozytorium do swojej gałęzi wtedy podaję komendę commit "*" wraz ze ścieżką do folderu który chce updetować.
+=======
+          <strong>Zatwierdza</strong> plik o nazwie "filename".
+            <ul>
+                <li>
+                    Plik "filename" jest zatwierdzony w HEAD, ale nie w zdalnym repozytorium.
+                </li>
+                <li>
+                    Przykład użycia "git commit lista_studentow.txt"
+                </li>
+                <li>
+                    Warto używać także parametru funkcji commit: -m "komentarz", dzięki któremu dodajemy komentarz do dabego commita
+                </li>
+            </ul>
+
         </p>
     </section>
 
     <section class="command">
         <h3><code>git branch -v</code></h3>
         <p>
+
+            Wypisuje branche, które są na naszym repozytorium, zaznaczając gwiazdką aktualny branch. Dodatkowo dostajemy informację o commicie na który wskazuje HEAD brancha - jego hash (sha1) oraz nazwę. 
+        </p><pre>
+$ git branch -v
+
+master bb2ce58 readme update
+  nowy   bb2ce58 readme update
+* nowy2  c31efe1 added new file
+  nowy7  c31efe1 added new file
+</pre> </p><p>
+Zamiast przełącznika -v można wpisać pełne, `--verbose`. 
+    </p><p>
+Podając -vv dopisana zostaje inforacja o repozytorium upstream dla brancha
+
             Wyświetla listę gałęzi wraz z dodatkowymi informacjami.
             <ul>
                 <li>
-                    Znak "*" przed nazwą gałęzi oznacza naszą obecną gałąź HEAD. 
+                    Znak "*" przed nazwą gałęzi oznacza naszą obecną gałąź HEAD.
                 </li>
                 <li>
                     Informacja na której gałęzi jest bazowana.
@@ -226,6 +282,7 @@
                     Ostatni commit na danej gałęzi.
                 </li>
             </ul>
+
         </p>
     </section class="command">
 
@@ -245,10 +302,30 @@
 
     <section class="command">
         <h3><code>git bisect (start, bad, good, reset)</code></h3>
-        <p>
-            <!-- describe here -->
-        </p>
-    </section class="command">
+        <p> 
+        <code>git bisect </code> wykorzystując wyszukiwanie binarne pozwala na znalezienie commita, po którym w kodzie znalazł się bug.
+	<ul>
+    		<li><code>git bisect start</code> rozpoczyna procedurę "git bisect"</li>
+    		<li><code>git bisect bad</code>użytkownik podaje commit, w którym znajduje się bug</li>
+		<li><code>git bisect good</code> użytkownik podaje commit, o którym wie, że nie znajduje się w nim wyżej wymieniony bug</li>
+	</ul>
+	Po podaniu poprawnego oraz błędnego commita <code>git bisect</code> wybiera commit pośrodku nich i pokazuje go użytkownikowi, a ten stwierdza, czy podany commit zawiera buga czy nie.
+	Jeżeli commit jest poprawny, użytkownik wpisuje: <code>git bisect good</code>, a w przeciwnym wypadku <code>git bisect bad</code>
+	Następnie git bisect znów wybierze commit pośrodku, z zakresu dobry-ostatnio sprawdzony lub ostatnio sprawdzony-zły. W zależności od odpowiedzi użytkownika proces ten będzie się powtarzał, aż nie zostanie żaden commit do sprawdzenia, a procedura wskaże pierwszy commit, który zawierał buga.
+	Po zakończeniu procesu git bisect należy użyć <code>get bisect reset </code> by wrócić do oryginalnego HEADa.
+		<p>
+		<h3>Przykład:</h3>
+		<ul>
+			<li>$ git bisect start
+			<li>$ git bisect bad   			// wybranie wersji z bugiem (brak podania wersji oznacza wybranie obecnej wersji)</li>
+			<li>$ git bisect good v2.5.2    // wybranie wersji bez buga</li>
+			<li>$ git bisect bad 			// commit wskazany przez <code>git bisect</code> zawiera buga</li>
+			<li>$ git bisect bad 			// kolejny raz commit wskazany przez <code>git bisect</code> zawiera buga</li>
+			<li>$ git bisect reset v2.4.8   // po wskazaniu pierwszego błędnego pliku kończymy procedurę i wracamy do wybranego commita (brak podania wersji wróci do commita sprzed rozpoczęcia procedury <code>git bisect</code></li>
+		</ul>
+		</p>
+	</p>
+    </section>
 
     <section class="command">
         <h3><code>git commit -a -m &quot;&quot;</code></h3>
@@ -264,9 +341,29 @@
 
     <section class="command">
         <h3><code>git add .</code></h3>
-        <p>
-            <!-- describe here -->
-        </p>
+
+            Komenda dodająca wszystkie <strong>zmienione</strong> i <strong>nowopowstałe</strong> pliki z katalogu roboczego i jego podkatalogów pod kontrolę wersji lub do poczekalni (stage). Zignorowane zostaną jedynie pliki zawarte w specjalnym pliku <strong>.gitignore</strong>. Warto również zaznaczyć, że "git add ." <strong>nie</strong> doda zmian dotyczących <strong>usunięć plików</strong>.
+            
+            <li> Przydatne, gdy chcemy utworzyć commita dla dużej liczby zmodyfikowanych lub nowych plików lub gdy pliki, które chcemy dodać do poczekalni (stage) są rozmieszczone w różnych podkatalogach katalogu roboczego.
+            </li>
+            <li> Przykład użycia w przykładowym katalogu root:<br>
+                root<br>
+                |_______plikRoot.txt<br>
+                |_______katalogA<br>
+                |..................|___________plikA.txt<br>
+                |_______katalogB<br>
+                |..................|___________plikB.txt<br>
+                |_______katalogC<br>
+                ...................|___________plikC.txt<br><br>
+                
+                $ git add .<br><br>
+                
+                Efekt: pliki: plikRoot.txt, plikA.txt, plikB.txt, plikC.txt zostały dodane do poczekalni (stage).
+                
+                
+                
+        </p> 
+
     </section>
 
     <section class="command">
@@ -288,13 +385,18 @@
                     git checkout -b &lt;new_branch&gt;  - utworzenie nowego brancha i przejście z obecnego brancha na new_branch
                 </li>
             </ul>
-        </p>   
+        </p>
     </section class="command">
 
     <section class="command">
         <h3><code>git remote add &quot;remote_name&quot; &quot;git url&quot;</code></h3>
         <p>
-            <!-- describe here -->
+            Dodaje nowe <strong>zdalne</strong> repozytorium (np. na GitHubie), do którego możemy przesyłać repozytorium lokalne.
+            <ul>
+                <li> Parametr &quot;remote_name&quot; określa nazwę zdalnego repozytorium (np. origin, upstream).</li>
+                <li> Parametr &quot;git url&quot; określa adres URL zdalnego repozytorium (np. https://github.com/user/repo.git</li> 
+                <li> Przykład użycia: git add upstream https://github.com/bikol/DINO201920.git</li>
+            </ul>
         </p>
     </section class="command">
 
@@ -316,7 +418,7 @@
 					Przykład użycia: "git blame -C -C -C dest"
 				</li>
 			</ul>
-        </p>    
+        </p>
     </section class="command">
 
     <section class="command">
@@ -337,15 +439,23 @@
         </p>
     </section class="command">
 
+<section class="command">
+        <h3><code>git fetch "remote" "branch"</code></h3>
+        <p>
+            Polecenie to sięga do zdalnego projektu i pobiera z niego wszystkie dane, których jeszcze nie masz. 
+        </p>
+    </section class="command">
+
 
     <footer>
         <p>
-            <strong>Źródła: 
+            <strong>Źródła:
             <ul>
                 <li><a href="https://help.github.com/en/github/using-git/setting-your-username-in-git">https://help.github.com/en/github/using-git/setting-your-username-in-git</a></li>
                 <li><a href="https://git-scm.com/docs/git-pull">https://git-scm.com/docs/git-pull</a></li>
+		<li><a href="https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository">https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository</a></li>    
             </ul>
-		    </strong>        
+		    </strong>
 	</p>
     </footer>
 </body>
