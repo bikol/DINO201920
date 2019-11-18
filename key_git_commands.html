@@ -99,7 +99,7 @@
         <p>
             Komenda git branch bez parametrów umożliwia użytkownikowi sprawdzenie użytkownikowi jego aktualnych gałęzi. Gałąź przy której znajduje się znak &quot;&ast;&quot; Oznacza, że jest to gałąź na której użytkownik aktualnie pracuje.
 	    <ul>
-	    <li> --merged: wyświetla które gałęzie już zostały zmergowane z gałęzią na której użytkownik aktualnie pracował. Gałęzie które nie posiadają &quot;&ast;&quot; są bezpieczne do usunięcia, gdyż zmiany z nich zostały już dodane do 
+	    <li> --merged: wyświetla które gałęzie już zostały zmergowane z gałęzią na której użytkownik aktualnie pracował. Gałęzie które nie posiadają &quot;&ast;&quot; są bezpieczne do usunięcia, gdyż zmiany z nich zostały już dodane do
 		    aktualnej gałęzi.</li>
 	    <ul>
         </p>
@@ -114,8 +114,8 @@
 
     <section class="command">
         <h3><code>git pull &quot;remote&quot; &quot;branch&quot;</code></h3>
-        <p> 
-        Uruchomienie <code>git pull</code> rozpoczyna ściągnięcie danych z serwera oraz próbuje automatycznie scalić zmiany z kodem znajdującym się lokalnie. Jest to połączenie dwóch komend: <code>git fetch</code> - ściągnięcie danych i <code>git merge</code> - połączenie zmian. Nie modyfikując podczas pracy repozytorium i gałęzi wystarczy wpisać samo <code>git pull</code>. Domyślne wartości repozytorium i brancha zostaną odczytane z konfiguracji gita (ustawienia "remote" oraz "merge"). <br> 
+        <p>
+        Uruchomienie <code>git pull</code> rozpoczyna ściągnięcie danych z serwera oraz próbuje automatycznie scalić zmiany z kodem znajdującym się lokalnie. Jest to połączenie dwóch komend: <code>git fetch</code> - ściągnięcie danych i <code>git merge</code> - połączenie zmian. Nie modyfikując podczas pracy repozytorium i gałęzi wystarczy wpisać samo <code>git pull</code>. Domyślne wartości repozytorium i brancha zostaną odczytane z konfiguracji gita (ustawienia "remote" oraz "merge"). <br>
         Parametry:
 		    <ul>
     			<li>"remote" to nazwa repozytorium, na przykład gdy stworzyliśmy je poprzez sklonowanie, oryginalne repozytorium będzie miało domyślnie nazwę <strong>origin</strong>.</li>
@@ -157,18 +157,18 @@
         <h3><code>git checkout -b &quot;branch&quot;</code></h3>
         <p>
 			Gałęzie (branch'e) są używane do rozwijania poszczegółnych funkcjonalności.
-			Branch <b><code>master</code></b> jest domyślną gałęzią przy tworzeniu repozytorium, 
-			najczęszczej na tej gałęzi są wyłącznie gotowe źródła projektów.			
+			Branch <b><code>master</code></b> jest domyślną gałęzią przy tworzeniu repozytorium,
+			najczęszczej na tej gałęzi są wyłącznie gotowe źródła projektów.
         </p>
 		<p>
-			Do tworzenia nowego branch'u jest używane polecenie 
-		</p>	
+			Do tworzenia nowego branch'u jest używane polecenie
+		</p>
 		<pre>
 <!--		--> git chceckout -b &ltnazwa-nowego-branch'u&gt &ltnazwa-branch'u-początkowego&gt
 		</pre>
 		<p>
 			Przykład użycia
-		</p>	
+		</p>
 		<pre>
 <!--		--> git chceckout -b feature-logowanie master
 		</pre>
@@ -184,27 +184,40 @@
     <section class="command">
         <h3><code>git branch -d &quot;branch&quot;</code></h3>
         <p>
-            <!-- describe here -->
+	   <ul>
+	       <li>
+		  Komenda branch służy do wyświetlania, tworzenia i usuwania gałęzi.
+	       </li>  
+          <li>
+		  git branch -d służy do usuwania podanej przez użytkownika gałęzi, pod warunkiem, że jest ona w pełni zmergowana lub znajduje się w HEADzie
+	       </li>
+	       <li>
+		  Przykład użycia: <code>$ git branch -d testing</code>
+	       </li>
+	       <li>
+		  Usunięta zostanie gałąź testing.
+	       </li>
+	    </ul>
         </p>
     </section>
 
     <section class="command">
         <h3><code>git fetch &quot;remote&quot; &quot;branch&quot;</code></h3>
         <p>
-	   <ul> 
+	   <ul>
 		<li>
 		   Komenda fetch pobiera commity, pliki i odnosi się ze zdalnego repozytorium do naszego lokalnego.
 		</li>
 		<li>
-		   git fetch < remote > sprowadza wszystkie branche z repozytorium. Pobiera również wszsytkie wymagane commity i pliki z innych repozytoriów.          
+		   git fetch < remote > sprowadza wszystkie branche z repozytorium. Pobiera również wszsytkie wymagane commity i pliki z innych repozytoriów.
 		</li>
 		<li>
 	           git fetch < remote > <  branch > robi to samo co powyższa komenda, ale sprowadza tylko określony branch.
 	        </li>
 		<li>
 		   Przykład użycia: git fetch PRA2018-2019 JSONandXMLStart
-		</li>	  
-	    </ul>	
+		</li>
+	    </ul>
         </p>
     </section class="command">
 
@@ -221,6 +234,10 @@
         <h3><code>git commit &quot;filename&quot;</code></h3>
         <p>
             Tworzy nowego commita zawierającego zawartość ostatniego commita wraz z migawką sprecyzowanych plików, oraz przenosi pliki do strefy Staging.
+            Przykład użycia:
+            Pracuje nad projektem i mam swoje repozytorium na komputerze osobistym (sklonowane z gita), gdy chcę "pushnąć"
+            update tego repozytorium do swojej gałęzi wtedy podaję komendę commit "*" wraz ze ścieżką do folderu który chce updetować.
+          <strong>Zatwierdza</strong> plik o nazwie "filename".
             <ul>
                 <li>
                     Plik "filename" jest zatwierdzony w HEAD, ale nie w zdalnym repozytorium.
@@ -232,6 +249,7 @@
                     Warto używać także parametru funkcji commit: -m "komentarz", dzięki któremu dodajemy komentarz do danego commita.
                 </li>
             </ul>
+
         </p>
     </section>
 
@@ -255,7 +273,7 @@ Podając -vv dopisana zostaje inforacja o repozytorium upstream dla brancha
             Wyświetla listę gałęzi wraz z dodatkowymi informacjami.
             <ul>
                 <li>
-                    Znak "*" przed nazwą gałęzi oznacza naszą obecną gałąź HEAD. 
+                    Znak "*" przed nazwą gałęzi oznacza naszą obecną gałąź HEAD.
                 </li>
                 <li>
                     Informacja na której gałęzi jest bazowana.
@@ -284,33 +302,54 @@ Podając -vv dopisana zostaje inforacja o repozytorium upstream dla brancha
 
     <section class="command">
         <h3><code>git bisect (start, bad, good, reset)</code></h3>
-        <p>
-            <!-- describe here -->
-        </p>
-    </section class="command">
+        <p> 
+        <code>git bisect </code> wykorzystując wyszukiwanie binarne pozwala na znalezienie commita, po którym w kodzie znalazł się bug.
+	<ul>
+    		<li><code>git bisect start</code> rozpoczyna procedurę "git bisect"</li>
+    		<li><code>git bisect bad</code>użytkownik podaje commit, w którym znajduje się bug</li>
+		<li><code>git bisect good</code> użytkownik podaje commit, o którym wie, że nie znajduje się w nim wyżej wymieniony bug</li>
+	</ul>
+	Po podaniu poprawnego oraz błędnego commita <code>git bisect</code> wybiera commit pośrodku nich i pokazuje go użytkownikowi, a ten stwierdza, czy podany commit zawiera buga czy nie.
+	Jeżeli commit jest poprawny, użytkownik wpisuje: <code>git bisect good</code>, a w przeciwnym wypadku <code>git bisect bad</code>
+	Następnie git bisect znów wybierze commit pośrodku, z zakresu dobry-ostatnio sprawdzony lub ostatnio sprawdzony-zły. W zależności od odpowiedzi użytkownika proces ten będzie się powtarzał, aż nie zostanie żaden commit do sprawdzenia, a procedura wskaże pierwszy commit, który zawierał buga.
+	Po zakończeniu procesu git bisect należy użyć <code>get bisect reset </code> by wrócić do oryginalnego HEADa.
+		<p>
+		<h3>Przykład:</h3>
+		<ul>
+			<li>$ git bisect start
+			<li>$ git bisect bad   			// wybranie wersji z bugiem (brak podania wersji oznacza wybranie obecnej wersji)</li>
+			<li>$ git bisect good v2.5.2    // wybranie wersji bez buga</li>
+			<li>$ git bisect bad 			// commit wskazany przez <code>git bisect</code> zawiera buga</li>
+			<li>$ git bisect bad 			// kolejny raz commit wskazany przez <code>git bisect</code> zawiera buga</li>
+			<li>$ git bisect reset v2.4.8   // po wskazaniu pierwszego błędnego pliku kończymy procedurę i wracamy do wybranego commita (brak podania wersji wróci do commita sprzed rozpoczęcia procedury <code>git bisect</code></li>
+		</ul>
+		</p>
+	</p>
+    </section>
 
     <section class="command">
         <h3><code>git commit -a -m &quot;&quot;</code></h3>
         <p>
-          <ul>
-              Komenda git commit wprowadza zmiany do lokalnego repozytorium.
-            <li>
-              Parametr -a powoduje, że commit zawiera wszystkie obecnie zmieniane pliki. Także nie zawiera plików nowo utworzonych.
-            </li>
-            <li>
-              Parametr -m umozliwia wprowadzenie komentarza, czyli opisanie naszego commita. Każdy commit powinien mieć komentarz.
-            </li>
-            <li>
-              Przykład użycia: git commit -a -m "komentarz"
-            </li>
-          </ul>
-          
+
+            Ogólnie komenda git commit służy do wprowadza zmiany do lokalnego repozytorium, które znajdują się w poczekali. Są to wszystkie pliki, na rzecz których zosało wywołane git add.
+	    <ul>
+		<li>
+		    -a pozala omiąć poczekalnie podczas zatwierdzania zmian, spowoduje to że każdy śledzony plik, który ulgł jakiejkolwiek modyfikacji zostanie automatycznie przniesiony do poczekalni (pominięcie git add) oraz nastąpi zatwierdzenie wprowadzonych zmian
+		</li>
+		<li>
+		    -m daje możliwość wprowadzenia komenarza bez koniecności uruchamiania edytora teksu, należy jednak pamięać o umieszczeniu go na końcu komendy oraz wpisaniu w cudzysłów (""/'')
+		</li>
+		<li>
+		    Przykład użucia: "git commit -a -m 'added new benchmarks'
+		</li>
+	    </ul>
+
         </p>
     </section>
 
     <section class="command">
         <h3><code>git add .</code></h3>
-        <p>
+
             Komenda dodająca wszystkie <strong>zmienione</strong> i <strong>nowopowstałe</strong> pliki z katalogu roboczego i jego podkatalogów pod kontrolę wersji lub do poczekalni (stage). Zignorowane zostaną jedynie pliki zawarte w specjalnym pliku <strong>.gitignore</strong>. Warto również zaznaczyć, że "git add ." <strong>nie</strong> doda zmian dotyczących <strong>usunięć plików</strong>.
             
             <li> Przydatne, gdy chcemy utworzyć commita dla dużej liczby zmodyfikowanych lub nowych plików lub gdy pliki, które chcemy dodać do poczekalni (stage) są rozmieszczone w różnych podkatalogach katalogu roboczego.
@@ -332,6 +371,7 @@ Podając -vv dopisana zostaje inforacja o repozytorium upstream dla brancha
                 
                 
         </p> 
+
     </section>
 
     <section class="command">
@@ -353,7 +393,7 @@ Podając -vv dopisana zostaje inforacja o repozytorium upstream dla brancha
                     git checkout -b &lt;new_branch&gt;  - utworzenie nowego brancha i przejście z obecnego brancha na new_branch
                 </li>
             </ul>
-        </p>   
+        </p>
     </section class="command">
 
     <section class="command">
@@ -386,7 +426,7 @@ Podając -vv dopisana zostaje inforacja o repozytorium upstream dla brancha
 					Przykład użycia: "git blame -C -C -C dest"
 				</li>
 			</ul>
-        </p>    
+        </p>
     </section class="command">
 
     <section class="command">
@@ -421,8 +461,9 @@ Podając -vv dopisana zostaje inforacja o repozytorium upstream dla brancha
             <ul>
                 <li><a href="https://help.github.com/en/github/using-git/setting-your-username-in-git">https://help.github.com/en/github/using-git/setting-your-username-in-git</a></li>
                 <li><a href="https://git-scm.com/docs/git-pull">https://git-scm.com/docs/git-pull</a></li>
+		<li><a href="https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository">https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository</a></li>    
             </ul>
-		    </strong>        
+		    </strong>
 	</p>
     </footer>
 </body>
