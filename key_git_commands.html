@@ -187,14 +187,15 @@
 	   <ul>
 	       <li>
 		  Komenda branch służy do wyświetlania, tworzenia i usuwania gałęzi.
-	       <li>
-		  git branch -d służy do usuwania wybranej gałęzi.
+	       </li>
+          <li>
+		  git branch -d służy do usuwania podanej przez użytkownika gałęzi, pod warunkiem, że jest ona w pełni zmergowana lub znajduje się w HEADzie
 	       </li>
 	       <li>
-		  Przykład użycia: git branch -d testing
+		  Przykład użycia: <code>$ git branch -d testing</code>
 	       </li>
 	       <li>
-		  Usunięta zostanie gałąź testing
+		  Usunięta zostanie gałąź testing.
 	       </li>
 	    </ul>
         </p>
@@ -232,6 +233,10 @@
     <section class="command">
         <h3><code>git commit &quot;filename&quot;</code></h3>
         <p>
+
+Pracuje nad projektem i mam swoje repozytorium na komputerze osobistym (sklonowane z gita), gdy chcę "pushnąć"
+update tego repozytorium do swojej gałęzi wtedy podaję komendę commit "*" wraz ze ścieżką do folderu który chce updetować.
+=======
           <strong>Zatwierdza</strong> plik o nazwie "filename".
             <ul>
                 <li>
@@ -244,6 +249,7 @@
                     Warto używać także parametru funkcji commit: -m "komentarz", dzięki któremu dodajemy komentarz do dabego commita
                 </li>
             </ul>
+
         </p>
     </section>
 
@@ -337,11 +343,25 @@ Podając -vv dopisana zostaje inforacja o repozytorium upstream dla brancha
             </li>
           </ul>
 
+            Ogólnie komenda git commit służy do wprowadza zmiany do lokalnego repozytorium, które znajdują się w poczekali. Są to wszystkie pliki, na rzecz których zosało wywołane git add.
+	    <ul>
+		<li>
+		    -a pozala omiąć poczekalnie podczas zatwierdzania zmian, spowoduje to że każdy śledzony plik, który ulgł jakiejkolwiek modyfikacji zostanie automatycznie przniesiony do poczekalni (pominięcie git add) oraz nastąpi zatwierdzenie wprowadzonych zmian
+		</li>
+		<li>
+		    -m daje możliwość wprowadzenia komenarza bez koniecności uruchamiania edytora teksu, należy jednak pamięać o umieszczeniu go na końcu komendy oraz wpisaniu w cudzysłów (""/'')
+		</li>
+		<li>
+		    Przykład użucia: "git commit -a -m 'added new benchmarks'
+		</li>
+	    </ul>
+
         </p>
     </section>
 
     <section class="command">
         <h3><code>git add .</code></h3>
+
              <p>
                   Komenda &quotgit add .&quot aktualizuje index wykorzystując obecną zawartość folderu w drzewie pracy, aby całą jego zawartość przygotować do uruchomienia komendy commit.
             <ul>
@@ -359,9 +379,7 @@ Podając -vv dopisana zostaje inforacja o repozytorium upstream dla brancha
             </li>
             </ul>
               </p>
-<section class="command">
-        <h3><code>git add .</code></h3>
-        <p>
+
             Komenda dodająca wszystkie <strong>zmienione</strong> i <strong>nowopowstałe</strong> pliki z katalogu roboczego i jego podkatalogów pod kontrolę wersji lub do poczekalni (stage). Zignorowane zostaną jedynie pliki zawarte w specjalnym pliku <strong>.gitignore</strong>. Warto również zaznaczyć, że "git add ." <strong>nie</strong> doda zmian dotyczących <strong>usunięć plików</strong>.
 
             <li> Przydatne, gdy chcemy utworzyć commita dla dużej liczby zmodyfikowanych lub nowych plików lub gdy pliki, które chcemy dodać do poczekalni (stage) są rozmieszczone w różnych podkatalogach katalogu roboczego.
@@ -382,7 +400,17 @@ Podając -vv dopisana zostaje inforacja o repozytorium upstream dla brancha
 
 
 
+
         </p>
+
+        </p>
+
+
+
+
+
+
+
     </section>
 
     <section class="command">
@@ -472,6 +500,7 @@ Podając -vv dopisana zostaje inforacja o repozytorium upstream dla brancha
             <ul>
                 <li><a href="https://help.github.com/en/github/using-git/setting-your-username-in-git">https://help.github.com/en/github/using-git/setting-your-username-in-git</a></li>
                 <li><a href="https://git-scm.com/docs/git-pull">https://git-scm.com/docs/git-pull</a></li>
+		<li><a href="https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository">https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository</a></li>
             </ul>
 		    </strong>
 	</p>
