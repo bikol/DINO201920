@@ -143,7 +143,7 @@
             <li>'staging area' czyli tak zwana 'przechowalnia', jest to prosty plik przechowywany w katalogu Git zawierający informacje o tym czego dotyczyć bedzię następna operacja <code>commit</code></li>
         </p>
         <p>
-            Przykład pracy z git: 
+            Przykład pracy z git:
             <ol><li>Wprowadzenie zmian pliku w katalogu roboczym</li>
             <li>Oznaczenie zmodyfikowanych plików jako śledzone, dodając ich bieżący stan do 'staging area'</li>
             <li><code>commit</code> zmian podczas którego zawartość plików z 'staging area' zapisywana jest jako migawka projektu w katalogu Git</li></ol>
@@ -187,7 +187,7 @@
 	   <ul>
 	       <li>
 		  Komenda branch służy do wyświetlania, tworzenia i usuwania gałęzi.
-	       </li>  
+	       </li>
           <li>
 		  git branch -d służy do usuwania podanej przez użytkownika gałęzi, pod warunkiem, że jest ona w pełni zmergowana lub znajduje się w HEADzie
 	       </li>
@@ -224,29 +224,29 @@
     <section class="command">
         <h3><code>git config --global color.ui true</code></h3>
         <p>
-            <!-- describe here -->    
+            <!-- describe here -->
             Komenda powoduje edycję wyglądu, a dokładniej konfiguracji koloru komend git'a. Parametr "true" powoduje, że output używa koloru kiedy pisze na terminalu.
             Kolory pomagają w odzczytywaniu wyników działania gita.
-        </p>    
+        </p>
     </section class="command">
 
     <section class="command">
         <h3><code>git commit &quot;filename&quot;</code></h3>
         <p>
-
-Pracuje nad projektem i mam swoje repozytorium na komputerze osobistym (sklonowane z gita), gdy chcę "pushnąć"
-update tego repozytorium do swojej gałęzi wtedy podaję komendę commit "*" wraz ze ścieżką do folderu który chce updetować.
-=======
+            Tworzy nowego commita zawierającego zawartość ostatniego commita wraz z migawką sprecyzowanych plików, oraz przenosi pliki do strefy Staging.
+            Przykład użycia:
+            Pracuje nad projektem i mam swoje repozytorium na komputerze osobistym (sklonowane z gita), gdy chcę "pushnąć"
+            update tego repozytorium do swojej gałęzi wtedy podaję komendę commit "*" wraz ze ścieżką do folderu który chce updetować.
           <strong>Zatwierdza</strong> plik o nazwie "filename".
             <ul>
                 <li>
                     Plik "filename" jest zatwierdzony w HEAD, ale nie w zdalnym repozytorium.
                 </li>
                 <li>
-                    Przykład użycia "git commit lista_studentow.txt"
+                    Przykład użycia: "git commit lista_studentow.txt"
                 </li>
                 <li>
-                    Warto używać także parametru funkcji commit: -m "komentarz", dzięki któremu dodajemy komentarz do dabego commita
+                    Warto używać także parametru funkcji commit: -m "komentarz", dzięki któremu dodajemy komentarz do danego commita.
                 </li>
             </ul>
 
@@ -257,7 +257,7 @@ update tego repozytorium do swojej gałęzi wtedy podaję komendę commit "*" wr
         <h3><code>git branch -v</code></h3>
         <p>
 
-            Wypisuje branche, które są na naszym repozytorium, zaznaczając gwiazdką aktualny branch. Dodatkowo dostajemy informację o commicie na który wskazuje HEAD brancha - jego hash (sha1) oraz nazwę. 
+            Wypisuje branche, które są na naszym repozytorium, zaznaczając gwiazdką aktualny branch. Dodatkowo dostajemy informację o commicie na który wskazuje HEAD brancha - jego hash (sha1) oraz nazwę.
         </p><pre>
 $ git branch -v
 
@@ -266,7 +266,7 @@ master bb2ce58 readme update
 * nowy2  c31efe1 added new file
   nowy7  c31efe1 added new file
 </pre> </p><p>
-Zamiast przełącznika -v można wpisać pełne, `--verbose`. 
+Zamiast przełącznika -v można wpisać pełne, `--verbose`.
     </p><p>
 Podając -vv dopisana zostaje inforacja o repozytorium upstream dla brancha
 
@@ -302,7 +302,7 @@ Podając -vv dopisana zostaje inforacja o repozytorium upstream dla brancha
 
     <section class="command">
         <h3><code>git bisect (start, bad, good, reset)</code></h3>
-        <p> 
+        <p>
         <code>git bisect </code> wykorzystując wyszukiwanie binarne pozwala na znalezienie commita, po którym w kodzie znalazł się bug.
 	<ul>
     		<li><code>git bisect start</code> rozpoczyna procedurę "git bisect"</li>
@@ -342,8 +342,26 @@ Podając -vv dopisana zostaje inforacja o repozytorium upstream dla brancha
     <section class="command">
         <h3><code>git add .</code></h3>
 
+             <p>
+                  Komenda &quotgit add .&quot aktualizuje index wykorzystując obecną zawartość folderu w drzewie pracy, aby całą jego zawartość przygotować do uruchomienia komendy commit.
+            <ul>
+            <li> &quot--dry-run&quot:
+              komenda zamiast dodać pliki, pokaże tylko które zostały by dodane, a które pominięte
+            </li>
+            <li> &quot--force&quot:
+              komenda doda pliki, które zostały by pominięte
+            </li>
+            <li> &quot--ignore-errors&quot:
+              komenda doda pliki, a jej działanie nie zostanie przerwane przy wystąpieniu błędu przy dodaniu do indexu niektórych plików
+            </li>
+            <li> &quot--refresh&quot:
+              komenda zamiast dodać pliki, zaktualizuje ich informacje w indexie
+            </li>
+            </ul>
+              </p>
+
             Komenda dodająca wszystkie <strong>zmienione</strong> i <strong>nowopowstałe</strong> pliki z katalogu roboczego i jego podkatalogów pod kontrolę wersji lub do poczekalni (stage). Zignorowane zostaną jedynie pliki zawarte w specjalnym pliku <strong>.gitignore</strong>. Warto również zaznaczyć, że "git add ." <strong>nie</strong> doda zmian dotyczących <strong>usunięć plików</strong>.
-            
+
             <li> Przydatne, gdy chcemy utworzyć commita dla dużej liczby zmodyfikowanych lub nowych plików lub gdy pliki, które chcemy dodać do poczekalni (stage) są rozmieszczone w różnych podkatalogach katalogu roboczego.
             </li>
             <li> Przykład użycia w przykładowym katalogu root:<br>
@@ -355,14 +373,23 @@ Podając -vv dopisana zostaje inforacja o repozytorium upstream dla brancha
                 |..................|___________plikB.txt<br>
                 |_______katalogC<br>
                 ...................|___________plikC.txt<br><br>
-                
+
                 $ git add .<br><br>
-                
+
                 Efekt: pliki: plikRoot.txt, plikA.txt, plikB.txt, plikC.txt zostały dodane do poczekalni (stage).
-                
-                
-                
-        </p> 
+
+
+
+
+        </p>
+
+        </p>
+
+
+
+
+
+
 
     </section>
 
@@ -394,7 +421,7 @@ Podając -vv dopisana zostaje inforacja o repozytorium upstream dla brancha
             Dodaje nowe <strong>zdalne</strong> repozytorium (np. na GitHubie), do którego możemy przesyłać repozytorium lokalne.
             <ul>
                 <li> Parametr &quot;remote_name&quot; określa nazwę zdalnego repozytorium (np. origin, upstream).</li>
-                <li> Parametr &quot;git url&quot; określa adres URL zdalnego repozytorium (np. https://github.com/user/repo.git</li> 
+                <li> Parametr &quot;git url&quot; określa adres URL zdalnego repozytorium (np. https://github.com/user/repo.git</li>
                 <li> Przykład użycia: git add upstream https://github.com/bikol/DINO201920.git</li>
             </ul>
         </p>
@@ -442,7 +469,7 @@ Podając -vv dopisana zostaje inforacja o repozytorium upstream dla brancha
 <section class="command">
         <h3><code>git fetch "remote" "branch"</code></h3>
         <p>
-            Polecenie to sięga do zdalnego projektu i pobiera z niego wszystkie dane, których jeszcze nie masz. 
+            Polecenie to sięga do zdalnego projektu i pobiera z niego wszystkie dane, których jeszcze nie masz.
         </p>
     </section class="command">
 
@@ -453,7 +480,7 @@ Podając -vv dopisana zostaje inforacja o repozytorium upstream dla brancha
             <ul>
                 <li><a href="https://help.github.com/en/github/using-git/setting-your-username-in-git">https://help.github.com/en/github/using-git/setting-your-username-in-git</a></li>
                 <li><a href="https://git-scm.com/docs/git-pull">https://git-scm.com/docs/git-pull</a></li>
-		<li><a href="https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository">https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository</a></li>    
+		<li><a href="https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository">https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository</a></li>
             </ul>
 		    </strong>
 	</p>
