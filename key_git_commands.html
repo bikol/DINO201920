@@ -330,32 +330,12 @@ Podając -vv dopisana zostaje inforacja o repozytorium upstream dla brancha
     <section class="command">
         <h3><code>git commit -a -m &quot;&quot;</code></h3>
         <p>
-          <ul>
-              Komenda git commit wprowadza zmiany do lokalnego repozytorium.
-            <li>
-              Parametr -a powoduje, że commit zawiera wszystkie obecnie zmieniane pliki. Także nie zawiera plików nowo utworzonych.
-            </li>
-            <li>
-              Parametr -m umozliwia wprowadzenie komentarza, czyli opisanie naszego commita. Każdy commit powinien mieć komentarz.
-            </li>
-            <li>
-              Przykład użycia: git commit -a -m "komentarz"
-            </li>
-          </ul>
-
-            Ogólnie komenda git commit służy do wprowadza zmiany do lokalnego repozytorium, które znajdują się w poczekali. Są to wszystkie pliki, na rzecz których zosało wywołane git add.
-	    <ul>
-		<li>
-		    -a pozala omiąć poczekalnie podczas zatwierdzania zmian, spowoduje to że każdy śledzony plik, który ulgł jakiejkolwiek modyfikacji zostanie automatycznie przniesiony do poczekalni (pominięcie git add) oraz nastąpi zatwierdzenie wprowadzonych zmian
-		</li>
-		<li>
-		    -m daje możliwość wprowadzenia komenarza bez koniecności uruchamiania edytora teksu, należy jednak pamięać o umieszczeniu go na końcu komendy oraz wpisaniu w cudzysłów (""/'')
-		</li>
-		<li>
-		    Przykład użucia: "git commit -a -m 'added new benchmarks'
-		</li>
-	    </ul>
-
+            Komenda <code>git commit</code> służy do zatwierdzenia zmian bedących w "staged area".
+            <ul>
+                <li>Parametr -a sprawia, że każdy śledzony już plik (nawet ten niedodany za pomocą "git add" będzie zacommitowany.</li>
+                <li>Parametr -m pozwala na opisanie commita</li>
+                <li>Przykład użycia: <code>git commit -a -m "initial commit"</code></li>
+            </ul>
         </p>
     </section>
 
